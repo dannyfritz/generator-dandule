@@ -34,7 +34,7 @@ var githubUserInfo = function (name, cb, log) {
   }, function (err, res) {
     if (err) {
       log.error('Cannot fetch your github profile. Make sure you\'ve typed it correctly.');
-      res = emptyGithubRes;
+      res = {realname: '', email: '', githubUrl: ''};
     }
     cb(JSON.parse(JSON.stringify(res)));
   });
@@ -70,7 +70,6 @@ var DanduleGenerator = yeoman.generators.Base.extend({
     }];
     this.prompt(prompts, function (props) {
       _.extend(this, props);
-      _.extend(this, {realname: '', email: '', githubUrl: ''});
       _.extend(this, {currentYear: (new Date()).getFullYear()});
       done();
     }.bind(this));
@@ -96,10 +95,12 @@ var DanduleGenerator = yeoman.generators.Base.extend({
       this.template('eslintrc', '.eslintrc');
       this.template('gitignore', '.gitignore');
       this.template('LICENSE');
+      this.template('README.md');
     },
     lib: function () {
       this.dest.mkdir('lib');
       this.dest.mkdir('bin');
+      this.template('index.js');
     },
     test: function () {
       this.dest.mkdir('test');
@@ -108,7 +109,7 @@ var DanduleGenerator = yeoman.generators.Base.extend({
 
   end: function () {
     var done = this.async();
-    this.npmInstall(['tape', 'npm-stare'], { 'saveDev': true }, done);
+    this.npmInstall(['tape', 'tap-dot', 'npm-stare', 'eslint'], { 'saveDev': true }, done);
   }
 });
 

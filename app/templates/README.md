@@ -1,0 +1,5 @@
+# <%= moduleName %>
+
+## License
+
+MIT
