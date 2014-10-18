@@ -1,0 +1,35 @@
+{
+  "name": "generator-dandule",
+  "version": "0.0.0",
+  "description": "Yeoman generator",
+  "license": "MIT",
+  "main": "app/index.js",
+  "repository": "dannyfritz/generator-dandule",
+  "author": {
+    "name": "Danny Fritz",
+    "email": "dannyfritz@gmail.com",
+    "url": "https://github.com/dannyfritz"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "tape test/*.js"
+  },
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "chalk": "^0.5.0",
+    "github": "^0.2.2",
+    "lodash": "^2.4.1",
+    "yeoman-generator": "^0.17.0",
+    "yosay": "^0.3.0"
+  },
+  "devDependencies": {
+    "tape": "*"
+  }
+}

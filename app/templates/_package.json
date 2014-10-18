@@ -1,0 +1,22 @@
+{
+  "name": "<%= _.slugify(moduleName) %>",
+  "version": "0.0.0",
+  "description": "<%= moduleDescription %>",
+  "license": "MIT",
+  "main": "index.js",
+  "files": [],
+  "repository": "<%= githubUser %>/<%= _.slugify(moduleName) %>",
+  "author": {
+    "name": "<%= realname %>",
+    "email": "<%= email %>",
+    "url": "<%= githubUrl %>"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "stare": "npm run stare"
+  },
+  "stare": {},
+  "keywords": []
+}
